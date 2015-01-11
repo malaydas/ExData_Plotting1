@@ -1,6 +1,7 @@
 plot3<- function(dir=NULL)
 {
-
+## This program needs the directory location where the actual data file resides , or it will presume data file located
+## in its current directory and subsequent processing will continue.
 ## Library Inclusion  
 library(tidyr)
 
@@ -21,7 +22,7 @@ pivotdata$DateTime<-paste(pivotdata$Date,pivotdata$Time)
 
 ## Plotting Starts here ##
 png("plot3.png",width = 480, height = 480, units = "px")
-with(pivotdata,plot(strptime(as.vector(DateTime),"%d/%m/%Y %H:%M:%S"),value,type="n",xlab="",ylab="Energy Sub metering"))
+with(pivotdata,plot(strptime(as.vector(DateTime),"%d/%m/%Y %H:%M:%S"),value,type="n",xlab="",ylab="Energy sub metering"))
 with(subset(pivotdata,Sub_metering=="Sub_metering_1"),lines(strptime(as.vector(DateTime),"%d/%m/%Y %H:%M:%S"),value,col="black"))
 with(subset(pivotdata,Sub_metering=="Sub_metering_2"),lines(strptime(as.vector(DateTime),"%d/%m/%Y %H:%M:%S"),value,col="red"))
 with(subset(pivotdata,Sub_metering=="Sub_metering_3"),lines(strptime(as.vector(DateTime),"%d/%m/%Y %H:%M:%S"),value,col="blue"))

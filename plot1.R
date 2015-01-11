@@ -1,6 +1,7 @@
 plot1 <- function(dir=NULL)
 {
-
+## This program needs the directory location where the actual data file resides , or it will presume data file located
+## in its current directory and subsequent processing will continue.
 ## Setting up the processing directory  
 if(is.null(dir)) dir<-paste(getwd(),"/",sep="")
 landdir<-dir  
